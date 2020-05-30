@@ -63,9 +63,9 @@ class AuthorController extends Controller
         $post = new Post();
         $post->title = $request['title'];
         $post->content = $request['content'];
-        $post->categeories = Categeories::where('categeories_id')->pluck('id')->$request['categeories'];
-        $post->menu = Menu::where('menu_id')->pluck('id')->$request['menu'];
         $post->user_id = Auth::id();
+        $post->categeories = $request['categeories'];
+        $post->menu = $request['menu'];
         $post->save();
         return back()->with('success','Post is successfully created');
     }
