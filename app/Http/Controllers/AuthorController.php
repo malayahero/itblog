@@ -93,10 +93,10 @@ class AuthorController extends Controller
     }
 
     public function newMenuPost(){
-        return view('author.newMenuPost');
+        return view('author.newMenuPost',compact('menu'));
     }
 
-    public function createMenuPost(CreateMenu $request){
+    public function createMenuPost(Request $request){
         $menu = new Menu();
         $menu->menu = $request['menu'];
         $menu->user_id = Auth::id();
