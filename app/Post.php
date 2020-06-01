@@ -14,9 +14,9 @@ class Post extends Model
     	return $this->hasMany('App\Comment');
     }
     public function categeories(){
-    	return $this->hasMany('App\Categeories');
+    	return $this->belongsTo('App\Categeories');
     }
     public function menu(){
-    	return $this->hasMany('App\menu');
+    	return $this->belongsTo('App\menu');
     }
 }

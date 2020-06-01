@@ -18,10 +18,8 @@ class CreatePostsTable extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->longText('content');
-            $table->integer('categeories_id');
-            $table->integer('menu_id');
-
-            $foreign->
+            $table->integer('categeories')->nullable()->unsigned();
+            $table->integer('menu')->nullable()->unsigned();
             $table->timestamps();
         });
     }

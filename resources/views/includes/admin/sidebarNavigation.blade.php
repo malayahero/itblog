@@ -34,6 +34,12 @@
                             <i class="icon icon-book-open"></i> Comments
                         </a>
                     </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="{{route('createMenu')}}" class="nav-link {{route::currentRouteName() == 'createMenu' ? 'active' : ""}}">
+                            <i class="icon icon-list"></i> Create Menu
+                        </a>
+                    </li>
                     @endif
                     @if(Auth::user()->admin == true)
                     <li class="nav-title">Admin</li>

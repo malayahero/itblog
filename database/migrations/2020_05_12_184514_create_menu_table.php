@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategeoriesTable extends Migration
+class CreateMenuTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateCategeoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categeories', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('categeories_id');
-            $table->string('categeories');
+        Schema::create('menu', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->string('menu');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateCategeoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categeories');
+        Schema::dropIfExists('menu');
     }
 }

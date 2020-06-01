@@ -50,10 +50,10 @@
                                         <div class="form-group">
                                             <label for="normal-input" class="form-control-label">Select Menu:</label>                            
                                             <select name="menu" class="form-control">
-{{--                                                 @foreach($post as $posts)
- --}}                                                <option class="form-control" value="rgfre">regre</option>
-{{--                                                 @endforeach
- --}}                                            </select>                                            
+                                                @foreach($menu as $menubar)
+                                                <option class="form-control" value="{{$menubar->id}}">{{$menubar->menu}}</option>
+                                                @endforeach
+                                            </select>                                            
                                         </div>
                                     </div>
                                 </div>

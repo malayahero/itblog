@@ -38,6 +38,14 @@ Route::prefix('author')->group(function(){
 	Route::post('/post/{id}/edit','AuthorController@postEditPost')->name('postEditPost');
 	Route::post('/post/{id}/delete','AuthorController@deletePost')->name('deletePost');
 	Route::get('comments','AuthorController@comments')->name('authorComments');
+
+	Route::get('menulist','AuthorController@createMenu')->name('createMenu');
+	
+	Route::get('menu/create','AuthorController@newMenuPost')->name('newMenuPost');
+	Route::post('menu/create','AuthorController@createMenu')->name('createMenuPost');
+
+	Route::get('menu/{id}/edit','AuthorController@createMenuEdit')->name('createMenuEdit');
+	Route::post('menu/{id}/edit','AuthorController@createMenuEdit')->name('createMenuEditPost');
 });
 
 Route::prefix('admin')->group(function(){

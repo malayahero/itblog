@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserUpdate;
 use App\Http\Requests\CreatePost;
+use App\Http\Requests\CreateMenu;
 use App\Post;
 use App\Categeories;
 use App\Menu;
@@ -64,8 +65,8 @@ class AuthorController extends Controller
         $post->title = $request['title'];
         $post->content = $request['content'];
         $post->user_id = Auth::id();
-        $post->categeories = $request['categeories'];
-        $post->menu = $request['menu'];
+        // $post->categeories_id = $request['menu'];
+        $post->menu_id = 1;
         $post->save();
         return back()->with('success','Post is successfully created');
     }
@@ -80,9 +81,33 @@ class AuthorController extends Controller
         $post->save();
         return back()->with('success','Post is successfully edit');
     }
+
     public function deletePost($id){
         $post = Post::where('id',$id)->where('user_id',Auth::id())->first();
         $post->delete();
         return back();
+    }
+
+    public function createMenu(){
+        return view('author.createmenu',compact('menu'));
+    }
+
+    public function newMenuPost(){
+        return view('author.newMenuPost');
+    }
+
+    public function createMenuPost(CreateMenu $request){
+        $menu = new Menu();
+        $menu->menu = $request['menu'];
+        $menu->user_id = Auth::id();
+        $menu->save();
+        // return back()->with('Success','Menu Has Been Creator');
+        return dd($menu);
+    }
+
+
+    public function createMenuShow($id){
+        $menu = Menu::all();
+        return view('author.createmenu',compact('menu'));
     }
 }
